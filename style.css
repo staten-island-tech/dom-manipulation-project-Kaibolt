@@ -1,0 +1,32 @@
+body, 
+html, 
+* {
+    font-size:10px;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+.card {
+    width: 35rem;
+    height: 30rem;
+    border: 2px solid black;
+    border-radius: 3px;
+    display: flex;
+    justify-content: space-around;
+    margin: 2rem 0;
+    align-items: center;
+    flex-direction: column;
+}
+.card-img{
+    width: 80%;
+    height: 80%;
+    object-fit: fill;
+    flex-direction: column;
+    align-items: center;}
+.card-header{
+    font-size: 2.8rem;
+    margin-top: 1.2rem;}
+.card-desc{
+    margin-bottom: 1.2rem;
+    font-size: 2rem;
+    text-align: center;}
