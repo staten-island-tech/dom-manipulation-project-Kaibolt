@@ -59,3 +59,4 @@ console.log(DOMSelectors.items); */
    Clear the information putu in the input boxes
    Have a remove button that gets rid of the specific box it's on
 */
+// MDN Links: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404?utm_source=mozilla&utm_medium=devtools-webconsole&utm_campaign=default
