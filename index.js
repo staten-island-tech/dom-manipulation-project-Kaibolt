@@ -3,13 +3,12 @@ const DOMSelectors = {
   items: document.querySelectorAll("li"),
   cardHeader: document.querySelector(".card-header"),
   button: document.querySelector(".btn"),
-  form: document.querySelector(".form"),
+  form: document.querySelector("form"),
   description: document.querySelector(".card-desc"),
   container: document.querySelector(".container"),
 };
 DOMSelectors.button.addEventListener("click", function (event) {
   console.log(event.target.parentElement);
-  event.target.parentElement.style.backgroundColor = "red";
 });
 DOMSelectors.form.addEventListener("submit", function (event) {
   event.preventDefault();
@@ -22,11 +21,6 @@ const items = Array.from(item);
 //iterate/loop over array and for each element make the color red
 items.forEach((el) => (el.style.color = "red"));
 const buttons = document.querySelectorAll;
-buttons.forEach((btn) =>
-  btn.addEventListener("click", function (event) {
-    console.log(event.target.textContent);
-  })
-);
 let album = {
   name: "Abbey Road",
 };
@@ -59,3 +53,9 @@ const header = document.querySelector("h1");
 console.log(header.parentElement);
 console.log(DOMSelectors.description);
 console.log(DOMSelectors.items); */
+
+/* INFO
+   Use a form with inputs to get the name, image and header information
+   Clear the information putu in the input boxes
+   Have a remove button that gets rid of the specific box it's on
+*/
