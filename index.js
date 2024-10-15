@@ -1,9 +1,9 @@
 const DOMSelectors = {
   header: document.querySelector("h1"),
   items: document.querySelectorAll("li"),
-  cardHeader: document.querySelector(".card-header"),
   button: document.querySelector(".btn"),
   form: document.querySelector("form"),
+  cardHeader: document.querySelector(".card-header"),
   description: document.querySelector(".card-desc"),
   picture: document.querySelector(".card-image"),
   container: document.querySelector(".container"),
@@ -20,14 +20,18 @@ function makeCard() {
   return create;
 } // The function returns this info
 function addCard(Card) {
-  const container = DOMSelectors.container;
+  //  const container = DOMSelectors.container;
   const card = document.createElement("div"); // The add element thing from below didn't exist
   card.className = "card";
-  card.innerHTML; //[Equal sign before the ;] All code before this is untested, including this line.
-  // I think this is similar to the Abbey road with the '' and the $ with the info. Then do the insert adjacent html or element I dont know
-  // add the query selector to remove a card and listen for clicks to run a function to remove a card. add an event listener to submit maybe, where it clears the text. But I'm pretty sure it already clears the text. Make a function that does this regardless
+  DOMSelectors.container.insertAdjacentHTML(
+    "beforeend",
+    '<div class="card"> <h2 class="card-header"> ${create.name}</h2></div>'
+  );
+  //  card.container.innerHTML() = '<div class="card"> <h2 class="card-header"> ${}</h2></div>';
 }
-
+//[Equal sign before the ;] All code before this is untested, including this line.
+// I think this is similar to the Abbey road with the '' and the $ with the info. Then do the insert adjacent html or element I dont know
+// add the query selector to remove a card and listen for clicks to run a function to remove a card. add an event listener to submit maybe, where it clears the text. But I'm pretty sure it already clears the text. Make a function that does this regardless
 /*
 DOMSelectors.button.addEventListener("click", function (event) {
   console.log(event.target.parentElement);
