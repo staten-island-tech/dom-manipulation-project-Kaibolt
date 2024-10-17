@@ -3,9 +3,9 @@ const DOMSelectors = {
   items: document.querySelectorAll("li"),
   button: document.querySelector(".btn"),
   form: document.querySelector("form"),
-  cardHeader: document.querySelector(".card-header"),
-  description: document.querySelector(".card-desc"),
-  picture: document.querySelector(".card-image"),
+  cardHeader: document.querySelector("#inputN"),
+  description: document.querySelector("#inputCI"),
+  picture: document.querySelector("#inputI"),
   container: document.querySelector(".container"),
 };
 
@@ -23,12 +23,16 @@ function addCard(Card) {
   //  const container = DOMSelectors.container;
   const card = document.createElement("div"); // The add element thing from below didn't exist
   card.className = "card";
-  DOMSelectors.container.insertAdjacentHTML(
+  DOMSelectors.container.innerHTML(
     "beforeend",
-    '<div class="card"> <h2 class="card-header"> ${create.name}</h2></div>'
+    `<div class="card"> <h2 class="card-header"> ${create.name}</h2> <img src=${create.image} class="card-img"> <h3 class="card-desc">${create.info}</h3> </div>`
   );
-  //  card.container.innerHTML() = '<div class="card"> <h2 class="card-header"> ${}</h2></div>';
 }
+DOMSelectors.button.addEventListener("click", function () {
+  addCard;
+});
+//  card.container.innerHTML() = '<div class="card"> <h2 class="card-header"> ${}</h2></div>';
+
 //[Equal sign before the ;] All code before this is untested, including this line.
 // I think this is similar to the Abbey road with the '' and the $ with the info. Then do the insert adjacent html or element I dont know
 // add the query selector to remove a card and listen for clicks to run a function to remove a card. add an event listener to submit maybe, where it clears the text. But I'm pretty sure it already clears the text. Make a function that does this regardless
