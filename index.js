@@ -1,92 +1,38 @@
 const DOMSelectors = {
-  header: document.querySelector("h1"),
-  items: document.querySelectorAll("li"),
-  button: document.querySelector(".btn"),
+  button: document.getElementById("btn"),
+  cardHeader: document.querySelector(`#inputN`),
+  cardDescription: document.querySelector(`#inputD`),
+  cardImage: document.querySelector("#inputI"),
+  container: document.getElementById("container"),
   form: document.querySelector("form"),
-  cardHeader: document.querySelector("#inputN"),
-  description: document.querySelector("#inputCI"),
-  picture: document.querySelector("#inputI"),
-  container: document.querySelector(".container"),
 };
 
-function makeCard() {
-  // Function to make a card
-  const create = {
-    // Variable create is...
-    name: DOMSelectors.cardHeader,
-    image: DOMSelectors.picture,
-    info: DOMSelectors.description,
-  };
-  return create;
-} // The function returns this info
-function addCard(Card) {
-  //  const container = DOMSelectors.container;
-  const card = document.createElement("div"); // The add element thing from below didn't exist
-  card.className = "card";
-  DOMSelectors.container.innerHTML(
-    "beforeend",
-    `<div class="card"> <h2 class="card-header"> ${create.name}</h2> <img src=${create.image} class="card-img"> <h3 class="card-desc">${create.info}</h3> </div>`
+function addCard() {
+  let cH = DOMSelectors.cardHeader.value;
+  let cD = DOMSelectors.cardDescription.value;
+  let cI = DOMSelectors.cardImage.value;
+  const cardHTML = `<div class=card> 
+    <h1 class="card-header">${cH}</h1> 
+    <img src="${cI}" class="card-img">
+    <p class="card-desc">${cD}</p> <button class="remove"> Remove Card</button></div>`;
+  DOMSelectors.container.insertAdjacentHTML("beforeend", cardHTML); // Insert the cardHTML
+  // I did have to ask ChatGPT for help with my remove button, but you did say that we have to be able to understand the code, so I'll ask any questions I have left later.
+  const removeButton = DOMSelectors.container.querySelector(
+    //Make a variable for the remove button which is a querySelector for the the div with the card class, I dont understand the last-child part, as it [thankfully] doesn't target the last child.
+    // and then the .remove class.
+    ".card:last-child .remove"
   );
-}
-DOMSelectors.button.addEventListener("click", function () {
-  addCard;
-});
-//  card.container.innerHTML() = '<div class="card"> <h2 class="card-header"> ${}</h2></div>';
-
-//[Equal sign before the ;] All code before this is untested, including this line.
-// I think this is similar to the Abbey road with the '' and the $ with the info. Then do the insert adjacent html or element I dont know
-// add the query selector to remove a card and listen for clicks to run a function to remove a card. add an event listener to submit maybe, where it clears the text. But I'm pretty sure it already clears the text. Make a function that does this regardless
-/*
-DOMSelectors.button.addEventListener("click", function (event) {
-  console.log(event.target.parentElement);
-});
-DOMSelectors.form.addEventListener("submit", function (event) {
-  event.preventDefault();
-  console.log(document.querySelector("input").value);
-});
-// Select all list items
-const item = document.querySelectorAll("li");
-// turn the nodelist into an array
-const items = Array.from(item);
-//iterate/loop over array and for each element make the color red
-items.forEach((el) => (el.style.color = "red"));
-const buttons = document.querySelectorAll;
-let album = {
-  name: "Abbey Road",
-};
-DOMSelectors.container.insertAdjacentHTML(
-  "beforeend",
-  `<div class="card">
-  <h2 class="card-header"> ${album.name}</h2><div/>`
-);
-*/
-// event listener for form
-// get values from form for widget objects
-// create the card and insert it
-// find remove buttons and add event listeners
-
-/* function changeColor() {
-  // Fine element with querySelector
-  let form = document.querySelector(".enter");
-  // Listen for a click event
-  form.addEventListener("click", function (event) {
-    // Prevents default behavior
-    event.preventDefault();
-    // Logging the click event
-    console.log(event.target);
+  removeButton.addEventListener("click", function () {
+    removeButton.parentElement.remove(); //So when this button is clicked, it will remove the parent element (the card) through the use of .remove function
   });
 }
-changeColor(); */
 
-/*function addElement(input) {}
-const header = document.querySelector("h1");
-console.log(header.parentElement);
-console.log(DOMSelectors.description);
-console.log(DOMSelectors.items); */
-
-/* INFO
-   Use a form with inputs to get the name, image and header information
-   Clear the information putu in the input boxes
-   Have a remove button that gets rid of the specific box it's on
-*/
-// MDN Links: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404?utm_source=mozilla&utm_medium=devtools-webconsole&utm_campaign=default
+function clearText() {
+  DOMSelectors.cardDescription.value = "";
+  DOMSelectors.cardHeader.value = "";
+  DOMSelectors.cardImage.value = "";
+}
+DOMSelectors.button.addEventListener("click", function () {
+  addCard();
+  clearText();
+});

@@ -6,7 +6,7 @@ html,
     margin: 0;
     padding: 0;
 }
-.container{
+#container{
     display: flex;
     width: 80%;
     margin: 2rem auto;
@@ -17,7 +17,7 @@ html,
 }
 .card {
     width: 35rem;
-    height: 30rem;
+    height: 33rem;
     border: 2px solid black;
     border-radius: 3px;
     display: flex;
@@ -27,8 +27,8 @@ html,
     flex-direction: column;
 }
 .card-img{
-    width: 80%;
-    height: 80%;
+    width: 60%;
+    height: 60%;
     object-fit: fill;
     flex-direction: column;
     align-items: center;}
@@ -37,5 +37,5 @@ html,
     margin-top: 1.2rem;}
 .card-desc{
     margin-bottom: 1.2rem;
-    font-size: 2rem;
+    font-size: 1.6rem;
     text-align: center;}

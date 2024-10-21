@@ -11,13 +11,13 @@
 
 <body>
     <form id="form">
-        <input id="inputN" type="text" placeholder="Card Name" />
-        <input id="inputI" type="url" placeholder="Card Image" />
-        <input type="text" id="inputCI" placeholder="Card Description" />
-        <button class="btn" type="submit">Submit Card</button>
+        <input id="inputN" type="text" placeholder="Card Name" required />
+        <input id="inputD" type="text" placeholder="Card Description" required />
+        <input id="inputI" type="url" placeholder="Card Image" required />
+        <button id="btn" type="button">Submit Card</button>
     </form>
-    <h1>Container under here, cards go in container</h1>
-    <div class="container">
+    <div id="container">
+
     </div>
     <script src="index.js"></script>
 </body>
